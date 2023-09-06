@@ -1,0 +1,112 @@
+1=> folder => movix
+2 => command 
+Npm Create vite@latest 
+Dot
+React
+javascript
+3 => npm run dev
+4 => index.html => logo , title
+5 => tmdb => .env => Token
+6 => src => utils => api.js
+7 => src => store => store.js => redux toolkit copy the code to store.js
+   => import {provider} from react-redux in main.js(index.js)
+8 => make a slice of each page and reducer
+   => see the data coming in redux dev tool or not
+9 => App.js => useDispatch and useSelector => (using react state and action in react component)
+
+Note => rafce
+
+=> const dispatch=useDispatch => 
+=> useSelector => url
+=> BrowserRoutes,Routes,Route => path=”” element={<componetName/>},useNavigate
+
+=> onKeyUp
+=> onChange
+
+Ctrl+f
+
+=> HeroBanner.js
+
+import React from "react";
+import "./style.scss";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import useFetch from "../../../hooks/useFetch";
+import { useSelector } from "react-redux";
+import Img from "../../../components/lazyLoadImage/Img";
+import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
+
+
+const HeroBanner = () => {
+  const [background, setBackground] = useState("");
+  const [query, setQuery] = useState("");
+  const navigate = useNavigate();
+  const { url } = useSelector((state) => state.home);
+
+
+  const { data, loading } = useFetch("/movie/upcoming");
+
+
+  useEffect(() => {
+    const bg =
+      url.backdrop +
+      data?.results?.[Math.floor(Math.random() * 20)]?.backdrop_path;
+    setBackground(bg);
+  }, [data]);
+
+
+  const searchQueryHandler = (event) => {
+    if (event.key === "Enter" && query.length > 0) {
+      navigate(`/search/${query}`);
+    }
+  };
+  return (
+    <div className="heroBanner">
+      {!loading && (
+        <div className="backdrop-img">
+          <img src={background} />
+        </div>
+      )}
+      <div className="opacity-layer"></div>
+      <ContentWrapper>
+        <div className="heroBannerContent">
+          <span className="title">Welcome</span>
+          <span className="subTitle">
+            Millions of movies, TV shows and people to discover. Explore now.
+          </span>
+          <div className="searchInput">
+            <input
+              type="text"
+              placeholder="Search for  movie or tv shows...."
+              onChange={(e) => setQuery(e.target.value)}
+              onKeyUp={searchQueryHandler}
+            />
+            <button>Search</button>
+          </div>
+        </div>
+      </ContentWrapper>
+    </div>
+  );
+};
+
+
+export default HeroBanner;
+
+
+
+
+=> Api.js
+useEffect
+Api call
+
+=> ContentWrapper.jsx
+For aligning center the data
+
+=> Header
+Window scrollY => hide , show , top 
+=> footer
+=> carousel section
+Home => trending => trending/{media_type}/{time_window}
+Scss => Home
+
+=> SwitchTabs inside the => components
