@@ -16,6 +16,13 @@ javascript
 
 Note => rafce
 
+=> useRef
+const carouselContainer = useRef();
+  console.log(carouselContainer.current);
+
+  return <div ref={carouselContainer}>Carousel</div>;
+
+
 => const dispatch=useDispatch => 
 => useSelector => url
 => BrowserRoutes,Routes,Route => path=”” element={<componetName/>},useNavigate
