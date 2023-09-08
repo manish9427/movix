@@ -1,3 +1,14 @@
+# Introduction
+
+World Movix (Web React Application): A dynamic and fully responsive web app that explores exciting movies and web shows. Built with React, Axios, Redux, and Custom Hooks, it fetches data in real-time from TMDB’s API, offering an immersive experience with the help of various useful React libraries.
+
+- Features: Search, Filter, Loading spinner, Fading, Carousel.
+- Tech: React JS, Redux-toolkit, React redux, react-player, SCSS, REST API, Vercel Hosting.
+
+# About
+
+It is a Movie application user can interact with movies or tv shows and displays specific details of shows/movies. It has search filter functionalities.
+
 # Home
 
 ![Screenshot (10476)](https://github.com/manish9427/movix/assets/107556633/0b480973-b07f-4c21-bf06-9f21d649fdfb)
