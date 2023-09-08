@@ -1,3 +1,5 @@
+developers.themoviedb.org/3/tv/get-tv-details
+
 1=> folder => movix
 2 => command 
 Npm Create vite@latest 
